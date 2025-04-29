@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 
-const APP_ID = "36aff9e32e8d4979a99c62128180e621";
+const APP_ID = "Enter your app id";
 const TOKEN =
-  "007eJxTYJBfN3XXwvB72i2RZV3KRWtiqyxTrQ7+9D2dsSqvPdpCNV+BwdgsMS3NMtXYKNUixcTS3DLR0jLZzMjQyMLQwiAVyMjNFchoCGRkWJtgyMrIAIEgPhtDcUlRamIuAwMAMXkeQQ==";
-const CHANNEL = "stream";
+  "Enter temp token generated.";
+const CHANNEL = "enter channel name";
 
 const client = AgoraRTC.createClient({
   mode: "rtc",
