@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
 // Create socket instance with correct path (very important!)
-const socket = io("http://localhost:8000", {
-  path: "/socket.io",  // Must match exactly what's in the server
+const socket = io("http://localhost:8000/", {
   transports: ["websocket", "polling"],
   reconnectionDelayMax: 10000,
   reconnectionAttempts: 10,

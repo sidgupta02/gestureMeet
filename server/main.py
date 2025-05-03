@@ -11,15 +11,6 @@ from sockets import sio_app
 
 app = FastAPI()
 
-# Add CORS middleware with explicit origin
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Explicitly allow only your frontend
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 # A simple route to test if the server is running
 @app.get('/')
 async def home():

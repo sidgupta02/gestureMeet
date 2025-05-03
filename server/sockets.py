@@ -40,3 +40,8 @@ async def chat(sid, data):
 async def disconnect(sid):
     print(f'{sid}: disconnected')
     await sio_server.emit('leave', {'sid': sid, 'message': f'User {sid} left the chat'})
+    
+    
+# Gesture integration
+from gestures import handle_gesture_sockets
+handle_gesture_sockets(sio_server)

@@ -1,8 +1,11 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Hand, Mic, MicOff, Video, VideoOff, Phone, MessageSquare } from "lucide-react";
+import {
+  Hand, Mic, MicOff, Video, VideoOff, Phone, MessageSquare,
+} from "lucide-react";
 import { useAgoraStream } from "../hooks/agora";
 import ChatBox from './ChatBox';
+import GestureCaption from './GestureCaption'; 
 
 function MeetingRoom() {
   const navigate = useNavigate();
@@ -22,6 +25,7 @@ function MeetingRoom() {
   const [isGestureOpen, setIsGestureOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const localVideoRef = useRef(null);
+
   const [clientId] = useState(`user-${Math.random().toString(36).substr(2, 9)}`);
 
   const getGridLayout = useCallback((count) => {
@@ -69,18 +73,30 @@ function MeetingRoom() {
           <div className={`grid ${gridLayout} gap-2 h-full`} id="video-streams">
             {isJoined && localUid && (
               <div className="video-container bg-gray-800 rounded-lg overflow-hidden relative">
-                {/* ref is pin localVideoRef variable here till the component unmounts */}
-                <div ref={localVideoRef} className="video-player"></div>
+                {/* Local Video */}
+                <div ref={localVideoRef} className="video-player w-full h-full object-cover"></div>
+
+                {/* Gesture Caption */}
+                {isGestureOpen && (
+                  <GestureCaption videoRef={localVideoRef} />
+                )}
+
+
+                {/* Name Tag */}
                 <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 px-2 py-1 rounded text-white text-sm">
                   You
                 </div>
               </div>
             )}
 
-            
-            {Object.entries(remoteUsers).map(([uid, user]) => (
+            {/* Remote Users */}
+            {Object.entries(remoteUsers).map(([uid, user]) =>(
               <div key={uid} className="video-container bg-gray-800 rounded-lg overflow-hidden relative">
-                <div id={`user-${uid}`} className="video-player"></div>
+                <div id={`user-${uid}`} className="video-player w-full h-full object-cover"></div>
+                
+                {/* Gesture Caption */}
+                
+                {/* Name Tag */}
                 <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 px-2 py-1 rounded text-white text-sm">
                   Remote
                 </div>
@@ -101,7 +117,7 @@ function MeetingRoom() {
         <button onClick={toggleVideo} className={`p-3 rounded-full ${isVideoMuted ? 'bg-red-500' : 'bg-blue-500'} text-white`}>
           {isVideoMuted ? <VideoOff size={20} /> : <Video size={20} />}
         </button>
-        <button onClick={toggleGesture} className="p-3 rounded-full bg-blue-500 text-white">
+        <button onClick={toggleGesture} className={`p-3 rounded-full ${isGestureOpen ? 'bg-blue-700' : 'bg-blue-500'} text-white`}>
           <Hand size={20} />
         </button>
         <button onClick={toggleChat} className="p-3 rounded-full bg-blue-500 text-white">
