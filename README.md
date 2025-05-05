@@ -48,8 +48,8 @@ Gesture Meet is a full-stack video calling web application powered by **React**,
 ### ✅ Clone the Repository
 
 ```bash
-git clone https://github.com/sidgupta02/gestrueMeet
-cd gestureMeet
+git clone https://github.com/your-username/gesture-meet.git
+cd gesture-meet
 ```
 
 ---
@@ -68,9 +68,16 @@ npm run dev
 
 ### 🧠 SERVER SETUP (FastAPI + YOLOv8)
 
+> 💡 First, install `pipenv` globally on your system if not already installed:
+
+```bash
+pip install pipenv
+```
+
+> 🔧 Then open the `server` folder in VS Code or your preferred terminal:
+
 ```bash
 cd server
-pip install pipenv
 pipenv install
 pipenv install fastapi uvicorn "python-socketio[asyncio]" aiofiles ultralytics opencv-python numpy pillow python-multipart fastapi-cors websockets
 pipenv shell
@@ -119,4 +126,3 @@ uvicorn main:app --reload
 - **Socket.IO**: Bi-directional real-time communication.
 
 ---
-
