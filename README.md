@@ -48,8 +48,8 @@ Gesture Meet is a full-stack video calling web application powered by **React**,
 ### ✅ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/gesture-meet.git
-cd gesture-meet
+git clone [https://github.com/sidgupta02/gestrueMeet].git
+cd gestureMeet
 ```
 
 ---
