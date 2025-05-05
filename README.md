@@ -49,7 +49,7 @@ Gesture Meet is a full-stack video calling web application powered by **React**,
 
 ```bash
 git clone https://github.com/sidgupta02/gestureMeet
-cd gesture-meet
+cd gestureMeet
 ```
 
 ---
