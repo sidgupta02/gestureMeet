@@ -120,8 +120,3 @@ uvicorn main:app --reload
 
 ---
 
-## 👨‍💻 Author
-
-Made by [Siddhant Kumar Gupta]([https://github.com/sidgupta02])
-
----
